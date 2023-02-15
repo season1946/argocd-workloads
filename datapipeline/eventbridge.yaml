@@ -1,7 +1,7 @@
 apiVersion: eventbridge.services.k8s.aws/v1alpha1
 kind: Rule
 metadata:
-  name: eb-rule-ack-01
+  name: eb-rule-ack-02
 spec:
   name: eb-rule-ack-01
   description: "ACK EventBridge Filter Rule to sfn using event bus reference"
@@ -28,4 +28,4 @@ spec:
         maximumRetryAttempts: 0 # no retries
   tags:
     - key: owner
-      value: eb-ack1
+      value: eb-ack
