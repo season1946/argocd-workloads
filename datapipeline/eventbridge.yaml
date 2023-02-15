@@ -11,7 +11,7 @@ spec:
       "detail-type": ["Object Created"],
       "detail": {
         "bucket": {
-          "name": ["sparkjob-victor-bucket"]    
+          "name": ["sparkjob-victor-bucket01"]    
         },
         "object": {
           "key": [{
@@ -28,4 +28,4 @@ spec:
         maximumRetryAttempts: 0 # no retries
   tags:
     - key: owner
-      value: eb-ack
+      value: eb-ack1
