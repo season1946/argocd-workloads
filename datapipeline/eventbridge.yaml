@@ -1,0 +1,33 @@
+apiVersion: eventbridge.services.k8s.aws/v1alpha1
+kind: Rule
+metadata:
+  name: eb-rule-ack
+  annotations:
+    services.k8s.aws/region: us-west-2
+spec:
+  name: eb-rule-ack
+  description: "ACK EventBridge Filter Rule to sfn using event bus reference"
+  eventPattern: |    
+    {
+      "source": ["aws.s3"],
+      "detail-type": ["Object Created"],
+      "detail": {
+        "bucket": {
+          "name": ["sparkjob-victor-bucket"]    
+        },
+        "object": {
+          "key": [{
+            "prefix": "scripts/"
+          }]
+        }
+      }
+    }
+  targets:
+    - arn: arn:aws:states:us-west-2:349361870252:stateMachine:run-spark-job-ack # replace with your sfn arn
+      id: sfn-run-spark-job-target
+      roleARN: arn:aws:iam::349361870252:role/event-driven-pipeline-demo-eb-execution-role # replace your eventbridge_role_arn
+      retryPolicy:
+        maximumRetryAttempts: 0 # no retries
+  tags:
+    - key: tag-01
+      value: value-01
