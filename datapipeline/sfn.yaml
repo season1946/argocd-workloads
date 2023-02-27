@@ -17,7 +17,7 @@ spec:
           "Type": "Task",
           "Resource": "arn:aws:states:::emr-containers:startJobRun.sync",
           "Parameters": {
-            "VirtualClusterId": "f0u3vt3y4q2r1ot11m7v809y6",  
+            "VirtualClusterId": "r4pxcg5edjhr148l1yqdczj76",  
             "ExecutionRoleArn": "arn:aws:iam::349361870252:role/event-driven-pipeline-demo-emr-eks-data-team-a",
             "ReleaseLabel": "emr-6.7.0-latest",
             "JobDriver": {
